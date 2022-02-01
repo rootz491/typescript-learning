@@ -1,10 +1,27 @@
-type validSymbol = '#' | '$'
+type validSymbol = '#' | '$';
 
 interface GenerateConfig { 
     symbol: validSymbol
     length: number 
 }
 
+interface Component {
+    onInit(el: HTMLElement | null): void;
+}
+
+class App implements Component {
+    static id = 'app';
+    onInit(el: HTMLElement | null): void {
+        if (el) {
+            setInterval(function() {
+                el.innerHTML = generateRandomIds({
+                    symbol: '#',
+                    length: 7
+                });
+            }, 1000);
+        }
+    }
+}
 
 /* Function Overloading */
 function generateRandomIds(symbol: validSymbol, length: number): string
@@ -19,19 +36,13 @@ function generateRandomIds(param: GenerateConfig | validSymbol, length?: number)
     }
 }
 
-function main() {
-    const app = document.querySelector('#app');
-    if (app) {
-        setInterval(function() {
-            app.innerHTML = generateRandomIds({
-                symbol: '#',
-                length: 7
-            });
-        }, 1000)
-    }
+function main(ComponentClass: typeof App) {
+    const app = document.getElementById(ComponentClass.id);
+    const component = new ComponentClass();
+    component.onInit(app);
 }
 
-main();
+main(App);
 
 // using function with multiple params
 console.log(generateRandomIds('$', 7));

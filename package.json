@@ -1,0 +1,19 @@
+{
+  "name": "typescript-learning",
+  "version": "1.0.0",
+  "description": "*   Strictly Typed *   Rename symbols      *   e.g. `foo` to `bar` by right-clicking on `foo` and selecting `Rename Symbol`)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rootz491/typescript-learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rootz491/typescript-learning/issues"
+  },
+  "homepage": "https://github.com/rootz491/typescript-learning#readme"
+}
